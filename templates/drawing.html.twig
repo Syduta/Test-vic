@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+{% block title %} {{ drawing.title }} {% endblock %}
+{% block body %}
+    <h1>{{ drawing.title }}</h1>
+    <img src="{{ drawing.image }}" alt="{{ drawing.title }}">
+    <p>{{ drawing.medium }}</p>
+{% endblock %}
