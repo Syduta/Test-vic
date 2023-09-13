@@ -17,11 +17,8 @@ class Drawing
     #[ORM\Column]
     private ?int $id = null;
 
-    #[Vich\UploadableField(mapping: 'images', fileNameProperty: 'imageName')]
+    #[Vich\UploadableField(mapping: 'images', fileNameProperty: 'image')]
     private ?File $imageFile = null;
-
-    #[ORM\Column(nullable: true)]
-    private ?string $imageName = null;
 
     #[ORM\Column(length: 255)]
     private ?string $title = null;

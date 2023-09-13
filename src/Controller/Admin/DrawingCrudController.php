@@ -22,7 +22,11 @@ class DrawingCrudController extends AbstractCrudController
     {
         return [
             TextField::new('title'),
-            TextField::new('imageFile')->setFormType(VichImageType::class),
+            TextField::new('imageFile')->setFormType(VichImageType::class)->onlyOnForms(),
+            ImageField::new('image')
+                ->setUploadDir('/public/images/dessins/')
+                ->setBasePath('/images/dessins/')
+                ->onlyOnIndex(),
             TextField::new('medium'),
             DateField::new('year'),
             TextField::new('format'),
