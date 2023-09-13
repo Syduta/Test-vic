@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Drawing;
 use App\Repository\DrawingRepository;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 

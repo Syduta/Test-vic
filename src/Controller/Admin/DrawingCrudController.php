@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Drawing;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
@@ -15,6 +16,17 @@ class DrawingCrudController extends AbstractCrudController
     public static function getEntityFqcn(): string
     {
         return Drawing::class;
+    }
+
+
+    public function configureCrud(Crud $crud): Crud{
+        return $crud
+            ->setEntityLabelInSingular('Drawing')
+            ->setEntityLabelInPlural('Drawings')
+
+            ->setPageTitle('index', '%entity_label_plural%')
+            //->setPageTitle('detail', fn (Drawing $drawing) => (string) $drawing)
+            ;
     }
 
 
