@@ -4,7 +4,7 @@
     <h1>Feacell's Drawings</h1>
     {% for drawing in drawings %}
         <h1>{{ drawing.title }}</h1>
-        <img src="{{ drawing.image }}" alt="{{ drawing.title }}">
+        <img src="{{ vich_uploader_asset(drawing) }}" alt="{{ drawing.title }}">
         <p>{{ drawing.medium }}</p>
     {% endfor %}
 {% endblock %}
