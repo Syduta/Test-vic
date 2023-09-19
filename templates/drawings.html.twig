@@ -3,8 +3,10 @@
 {% block body %}
     <h1>Feacell's Drawings</h1>
     {% for drawing in drawings %}
-        <h1>{{ drawing.title }}</h1>
-        <img src="{{ vich_uploader_asset(drawing) }}" alt="{{ drawing.title }}">
-        <p>{{ drawing.medium }}</p>
+        <a href="{{ path('drawing',{'id':drawing.id}) }}">
+            <h1>{{ drawing.title }}</h1>
+            <img src="{{ vich_uploader_asset(drawing) }}" alt="{{ drawing.title }}">
+            <p>{{ drawing.medium }}</p>
+        </a>
     {% endfor %}
 {% endblock %}
