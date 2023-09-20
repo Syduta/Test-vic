@@ -3,7 +3,13 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Drawing;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class DrawingCrudController extends AbstractCrudController
 {
@@ -12,14 +18,32 @@ class DrawingCrudController extends AbstractCrudController
         return Drawing::class;
     }
 
-    /*
+
+    public function configureCrud(Crud $crud): Crud{
+        return $crud
+            ->setEntityLabelInSingular('Drawing')
+            ->setEntityLabelInPlural('Drawings')
+
+            ->setPageTitle('index', '%entity_label_plural%')
+            //->setPageTitle('detail', fn (Drawing $drawing) => (string) $drawing)
+            ;
+    }
+
+
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
             TextField::new('title'),
-            TextEditorField::new('description'),
+            TextField::new('imageFile')->setFormType(VichImageType::class)->onlyOnForms(),
+            ImageField::new('image')
+                ->setUploadDir('/public/images/dessins/')
+                ->setBasePath('/images/dessins/')
+                ->onlyOnIndex(),
+            TextField::new('medium'),
+            DateField::new('year'),
+            TextField::new('format'),
+            NumberField::new('price'),
         ];
     }
-    */
+
 }

@@ -4,4 +4,5 @@
     <h1>{{ drawing.title }}</h1>
     <img src="{{ vich_uploader_asset(drawing) }}" alt="{{ drawing.title }}">
     <p>{{ drawing.medium }}</p>
+    <a href="{{ path('cart_add',{'id':drawing.id}) }}">Add to cart</a>
 {% endblock %}

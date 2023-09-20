@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block title %} Your Cart{% endblock %}
+{% block body %}
+    <h1>Your Cart</h1>
+    {% if cartData | length > 0 %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Drawing</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cartData %}
+                    <tr>
+                        <td>{{ item.drawing.title }}</td>
+                        <td><img style="height: 50px" src="{{ vich_uploader_asset(item.drawing) }}" alt="{{ item.drawing.title }}"></td>
+                        <td>{{ item.drawing.price }} €</td>
+                        <td>
+                            <a style="color: red" href="{{ path('cart_remove',{'id':item.drawing.id}) }}"><i class="fas fa-trash">Delete from Cart</i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Total : </td>
+                    <td></td>
+                    <td>{{ total }} €</td>
+                </tr>
+            </tfoot>
+        </table>
+    {% else %}
+        <p>Your Cart is empty</p>
+    {% endif %}
+{% endblock %}
