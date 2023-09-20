@@ -89,7 +89,7 @@ class Drawing
         return $this->image;
     }
 
-    public function setImage(string $image): static
+    public function setImage(string $image = null): static
     {
         $this->image = $image;
 

@@ -9,3 +9,7 @@ vich_uploader:
             uri_prefix: /images/dessins
             upload_destination: '%kernel.project_dir%/public/images/dessins'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
